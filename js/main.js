@@ -8,7 +8,7 @@ import {
   createPrice,
   createType,
   createRoomsAndGuests,
-  checkinAndcheckoutTime,
+  getCheckinAndCheckoutTime,
   createFeatures,
   createDescription,
   createApartmentPhoto,
@@ -22,7 +22,7 @@ console.log(
   createPrice(),
   createType(),
   createRoomsAndGuests(),
-  checkinAndcheckoutTime(),
+  getCheckinAndCheckoutTime(),
   createFeatures(),
   createDescription(),
   createApartmentPhoto()

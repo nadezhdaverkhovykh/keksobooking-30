@@ -1,276 +1,276 @@
 import {
   used,
-  AddAvatar,
-  offerPrice,
-  offerType,
-  PositiveInteger,
-  checkInAndcheckOutTime,
-  features,
-  photos,
-  lat,
-  lng,
+  addAvatar,
+  getOfferPrice,
+  getOfferType,
+  getPositiveInteger,
+  getCheckinAndCheckoutTime,
+  getFeatures,
+  getPhotos,
+  getLat,
+  getLng,
 } from "./util.js";
 
 const DATA = [
   {
     author: {
-      avatar: AddAvatar(),
+      avatar: addAvatar(),
     },
     offer: {
       title: "Уютная квартира в центре города!",
       address: {
-        lat: lat(),
-        lng: lng(),
+        lat: getLat(),
+        lng: getLng(),
       },
-      price: offerPrice(),
-      type: offerType(),
-      rooms: PositiveInteger(),
-      guests: PositiveInteger(),
-      checkin: checkInAndcheckOutTime(),
-      checkout: checkInAndcheckOutTime(),
-      features: features(),
+      price: getOfferPrice(),
+      type: getOfferType(),
+      rooms: getPositiveInteger(),
+      guests: getPositiveInteger(),
+      checkin: getCheckinAndCheckoutTime(),
+      checkout: getCheckinAndCheckoutTime(),
+      features: getFeatures(),
       description:
         "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
-      photos: photos(),
+      photos: getPhotos(),
     },
     location: {
-      lat: lat(),
-      lng: lng(),
+      lat: getLat(),
+      lng: getLng(),
     },
   },
-  // {
-  //   author: {
-  //     avatar: AddAvatar(),
-  //   },
-  //   offer: {
-  //     title: "Уютная квартира в центре города!",
-  //     address: {
-  //       lat: lat(),
-  //       lng: lng(),
-  //     },
-  //     price: offerPrice(),
-  //     type: offerType(),
-  //     rooms: PositiveInteger(),
-  //     guests: PositiveInteger(),
-  //     checkin: checkInAndcheckOutTime(),
-  //     checkout: checkInAndcheckOutTime(),
-  //     features: features(),
-  //     description:
-  //       "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
-  //     photos: photos(),
-  //   },
-  //   location: {
-  //     lat: lat(),
-  //     lng: lng(),
-  //   },
-  // },
   {
-    //   author: {
-    //     avatar: AddAvatar(),
-    //   },
-    //   offer: {
-    //     title: "Уютная квартира в центре города!",
-    //     address: {
-    //       lat: lat(),
-    //       lng: lng(),
-    //     },
-    //     price: offerPrice(),
-    //     type: offerType(),
-    //     rooms: PositiveInteger(),
-    //     guests: PositiveInteger(),
-    //     checkin: checkInAndcheckOutTime(),
-    //     checkout: checkInAndcheckOutTime(),
-    //     features: features(),
-    //     description:
-    //       "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
-    //     photos: photos(),
-    //   },
-    //   location: {
-    //     lat: lat(),
-    //     lng: lng(),
-    //   },
-    // },
-    // {
-    //   author: {
-    //     avatar: AddAvatar(),
-    //   },
-    //   offer: {
-    //     title: "Уютная квартира в центре города!",
-    //     address: {
-    //       lat: lat(),
-    //       lng: lng(),
-    //     },
-    //     price: offerPrice(),
-    //     type: offerType(),
-    //     rooms: PositiveInteger(),
-    //     guests: PositiveInteger(),
-    //     checkin: checkInAndcheckOutTime(),
-    //     checkout: checkInAndcheckOutTime(),
-    //     features: features(),
-    //     description:
-    //       "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
-    //     photos: photos(),
-    //   },
-    //   location: {
-    //     lat: lat(),
-    //     lng: lng(),
-    //   },
-    // },
-    // {
-    //   author: {
-    //     avatar: AddAvatar(),
-    //   },
-    //   offer: {
-    //     title: "Уютная квартира в центре города!",
-    //     address: {
-    //       lat: lat(),
-    //       lng: lng(),
-    //     },
-    //     price: offerPrice(),
-    //     type: offerType(),
-    //     rooms: PositiveInteger(),
-    //     guests: PositiveInteger(),
-    //     checkin: checkInAndcheckOutTime(),
-    //     checkout: checkInAndcheckOutTime(),
-    //     features: features(),
-    //     description:
-    //       "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
-    //     photos: photos(),
-    //   },
-    //   location: {
-    //     lat: lat(),
-    //     lng: lng(),
-    //   },
-    // },
-    // {
-    //   author: {
-    //     avatar: AddAvatar(),
-    //   },
-    //   offer: {
-    //     title: "Уютная квартира в центре города!",
-    //     address: {
-    //       lat: lat(),
-    //       lng: lng(),
-    //     },
-    //     price: offerPrice(),
-    //     type: offerType(),
-    //     rooms: PositiveInteger(),
-    //     guests: PositiveInteger(),
-    //     checkin: checkInAndcheckOutTime(),
-    //     checkout: checkInAndcheckOutTime(),
-    //     features: features(),
-    //     description:
-    //       "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
-    //     photos: photos(),
-    //   },
-    //   location: {
-    //     lat: lat(),
-    //     lng: lng(),
-    //   },
-    // },
-    // {
-    //   author: {
-    //     avatar: AddAvatar(),
-    //   },
-    //   offer: {
-    //     title: "Уютная квартира в центре города!",
-    //     address: {
-    //       lat: lat(),
-    //       lng: lng(),
-    //     },
-    //     price: offerPrice(),
-    //     type: offerType(),
-    //     rooms: PositiveInteger(),
-    //     guests: PositiveInteger(),
-    //     checkin: checkInAndcheckOutTime(),
-    //     checkout: checkInAndcheckOutTime(),
-    //     features: features(),
-    //     description:
-    //       "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
-    //     photos: photos(),
-    //   },
-    //   location: {
-    //     lat: lat(),
-    //     lng: lng(),
-    //   },
-    // },
-    // {
-    //   author: {
-    //     avatar: AddAvatar(),
-    //   },
-    //   offer: {
-    //     title: "Уютная квартира в центре города!",
-    //     address: {
-    //       lat: lat(),
-    //       lng: lng(),
-    //     },
-    //     price: offerPrice(),
-    //     type: offerType(),
-    //     rooms: PositiveInteger(),
-    //     guests: PositiveInteger(),
-    //     checkin: checkInAndcheckOutTime(),
-    //     checkout: checkInAndcheckOutTime(),
-    //     features: features(),
-    //     description:
-    //       "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
-    //     photos: photos(),
-    //   },
-    //   location: {
-    //     lat: lat(),
-    //     lng: lng(),
-    //   },
-    // },
-    // {
-    //   author: {
-    //     avatar: AddAvatar(),
-    //   },
-    //   offer: {
-    //     title: "Уютная квартира в центре города!",
-    //     address: {
-    //       lat: lat(),
-    //       lng: lng(),
-    //     },
-    //     price: offerPrice(),
-    //     type: offerType(),
-    //     rooms: PositiveInteger(),
-    //     guests: PositiveInteger(),
-    //     checkin: checkInAndcheckOutTime(),
-    //     checkout: checkInAndcheckOutTime(),
-    //     features: features(),
-    //     description:
-    //       "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
-    //     photos: photos(),
-    //   },
-    //   location: {
-    //     lat: lat(),
-    //     lng: lng(),
-    //   },
-    // },
-    // {
-    //   author: {
-    //     avatar: AddAvatar(),
-    //   },
-    //   offer: {
-    //     title: "Уютная квартира в центре города!",
-    //     address: {
-    //       lat: lat(),
-    //       lng: lng(),
-    //     },
-    //     price: offerPrice(),
-    //     type: offerType(),
-    //     rooms: PositiveInteger(),
-    //     guests: PositiveInteger(),
-    //     checkin: checkInAndcheckOutTime(),
-    //     checkout: checkInAndcheckOutTime(),
-    //     features: features(),
-    //     description:
-    //       "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
-    //     photos: photos(),
-    //   },
-    //   location: {
-    //     lat: lat(),
-    //     lng: lng(),
-    //   },
+    author: {
+      avatar: addAvatar(),
+    },
+    offer: {
+      title: "Уютная квартира в центре города!",
+      address: {
+        lat: getLat(),
+        lng: getLng(),
+      },
+      price: getOfferPrice(),
+      type: getOfferType(),
+      rooms: getPositiveInteger(),
+      guests: getPositiveInteger(),
+      checkin: getCheckinAndCheckoutTime(),
+      checkout: getCheckinAndCheckoutTime(),
+      features: getFeatures(),
+      description:
+        "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
+      photos: getPhotos(),
+    },
+    location: {
+      lat: getLat(),
+      lng: getLng(),
+    },
+  },
+  {
+    author: {
+      avatar: addAvatar(),
+    },
+    offer: {
+      title: "Уютная квартира в центре города!",
+      address: {
+        lat: getLat(),
+        lng: getLng(),
+      },
+      price: getOfferPrice(),
+      type: getOfferType(),
+      rooms: getPositiveInteger(),
+      guests: getPositiveInteger(),
+      checkin: getCheckinAndCheckoutTime(),
+      checkout: getCheckinAndCheckoutTime(),
+      features: getFeatures(),
+      description:
+        "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
+      photos: getPhotos(),
+    },
+    location: {
+      lat: getLat(),
+      lng: getLng(),
+    },
+  },
+  {
+    author: {
+      avatar: addAvatar(),
+    },
+    offer: {
+      title: "Уютная квартира в центре города!",
+      address: {
+        lat: getLat(),
+        lng: getLng(),
+      },
+      price: getOfferPrice(),
+      type: getOfferType(),
+      rooms: getPositiveInteger(),
+      guests: getPositiveInteger(),
+      checkin: getCheckinAndCheckoutTime(),
+      checkout: getCheckinAndCheckoutTime(),
+      features: getFeatures(),
+      description:
+        "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
+      photos: getPhotos(),
+    },
+    location: {
+      lat: getLat(),
+      lng: getLng(),
+    },
+  },
+  {
+    author: {
+      avatar: addAvatar(),
+    },
+    offer: {
+      title: "Уютная квартира в центре города!",
+      address: {
+        lat: getLat(),
+        lng: getLng(),
+      },
+      price: getOfferPrice(),
+      type: getOfferType(),
+      rooms: getPositiveInteger(),
+      guests: getPositiveInteger(),
+      checkin: getCheckinAndCheckoutTime(),
+      checkout: getCheckinAndCheckoutTime(),
+      features: getFeatures(),
+      description:
+        "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
+      photos: getPhotos(),
+    },
+    location: {
+      lat: getLat(),
+      lng: getLng(),
+    },
+  },
+  {
+    author: {
+      avatar: addAvatar(),
+    },
+    offer: {
+      title: "Уютная квартира в центре города!",
+      address: {
+        lat: getLat(),
+        lng: getLng(),
+      },
+      price: getOfferPrice(),
+      type: getOfferType(),
+      rooms: getPositiveInteger(),
+      guests: getPositiveInteger(),
+      checkin: getCheckinAndCheckoutTime(),
+      checkout: getCheckinAndCheckoutTime(),
+      features: getFeatures(),
+      description:
+        "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
+      photos: getPhotos(),
+    },
+    location: {
+      lat: getLat(),
+      lng: getLng(),
+    },
+  },
+  {
+    author: {
+      avatar: addAvatar(),
+    },
+    offer: {
+      title: "Уютная квартира в центре города!",
+      address: {
+        lat: getLat(),
+        lng: getLng(),
+      },
+      price: getOfferPrice(),
+      type: getOfferType(),
+      rooms: getPositiveInteger(),
+      guests: getPositiveInteger(),
+      checkin: getCheckinAndCheckoutTime(),
+      checkout: getCheckinAndCheckoutTime(),
+      features: getFeatures(),
+      description:
+        "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
+      photos: getPhotos(),
+    },
+    location: {
+      lat: getLat(),
+      lng: getLng(),
+    },
+  },
+  {
+    author: {
+      avatar: addAvatar(),
+    },
+    offer: {
+      title: "Уютная квартира в центре города!",
+      address: {
+        lat: getLat(),
+        lng: getLng(),
+      },
+      price: getOfferPrice(),
+      type: getOfferType(),
+      rooms: getPositiveInteger(),
+      guests: getPositiveInteger(),
+      checkin: getCheckinAndCheckoutTime(),
+      checkout: getCheckinAndCheckoutTime(),
+      features: getFeatures(),
+      description:
+        "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
+      photos: getPhotos(),
+    },
+    location: {
+      lat: getLat(),
+      lng: getLng(),
+    },
+  },
+  {
+    author: {
+      avatar: addAvatar(),
+    },
+    offer: {
+      title: "Уютная квартира в центре города!",
+      address: {
+        lat: getLat(),
+        lng: getLng(),
+      },
+      price: getOfferPrice(),
+      type: getOfferType(),
+      rooms: getPositiveInteger(),
+      guests: getPositiveInteger(),
+      checkin: getCheckinAndCheckoutTime(),
+      checkout: getCheckinAndCheckoutTime(),
+      features: getFeatures(),
+      description:
+        "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
+      photos: getPhotos(),
+    },
+    location: {
+      lat: getLat(),
+      lng: getLng(),
+    },
+  },
+  {
+    author: {
+      avatar: addAvatar(),
+    },
+    offer: {
+      title: "Уютная квартира в центре города!",
+      address: {
+        lat: getLat(),
+        lng: getLng(),
+      },
+      price: getOfferPrice(),
+      type: getOfferType(),
+      rooms: getPositiveInteger(),
+      guests: getPositiveInteger(),
+      checkin: getCheckinAndCheckoutTime(),
+      checkout: getCheckinAndCheckoutTime(),
+      features: getFeatures(),
+      description:
+        "Прекрасная светлая квартира, оборудованная всем самым необходимым.",
+      photos: getPhotos(),
+    },
+    location: {
+      lat: getLat(),
+      lng: getLng(),
+    },
   },
 ];
 

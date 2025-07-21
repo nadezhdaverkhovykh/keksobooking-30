@@ -1,37 +1,35 @@
 export const used = [];
-export function AddAvatar() {
+function randomIndex(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+export function addAvatar() {
   for (let i = 1; i < 10; i++) {
-    let authorAvatar = "img/avatars/user{{xx}}.png";
     let randomAvatar = Math.floor(Math.random() * (11 - 1) + 1);
     if (!used.includes(randomAvatar)) {
       used.push(randomAvatar);
       if (randomAvatar < 10) {
         randomAvatar = "0" + randomAvatar;
       }
-      let finalAvatar = authorAvatar.replace("{{xx}}", randomAvatar);
-      return finalAvatar;
+      return `img/avatars/user${randomAvatar}.png`;
     }
   }
-  return "Не удалось найти уникальный аватар";
 }
-export function offerPrice() {
+export function getOfferPrice() {
   return Math.floor(Math.random() * (30000 - 2000) + 2000);
 }
-export function offerType() {
+export function getOfferType() {
   const type = ["palace", "flat", "house", "bungalow", "hotel"];
-  const randomIndex = Math.floor(Math.random() * type.length);
-  return type[randomIndex];
+  return randomIndex(type);
 }
-export function PositiveInteger() {
+export function getPositiveInteger() {
   return Math.floor(Math.random() * (8 - 1) + 1);
 }
-export function checkInAndcheckOutTime() {
+export function getCheckinAndCheckoutTime() {
   const time = ["12:00", "13:00", "14:00"];
-  const randomIndex = Math.floor(Math.random() * time.length);
-  return time[randomIndex];
+  return randomIndex(time);
 }
 
-export function features() {
+export function getFeatures() {
   const features = [
     "wifi",
     "dishwasher",
@@ -40,26 +38,24 @@ export function features() {
     "elevator",
     "conditioner",
   ];
-  const randomIndex = Math.floor(Math.random() * features.length);
-  return features[randomIndex];
+  return randomIndex(features);
 }
 
-export function photos() {
+export function getPhotos() {
   const photos = [
     "https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg",
     "https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg",
     "https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/claire-rendall-b6kAwr1i0Iw.jpg",
   ];
-  const randomIndex = Math.floor(Math.random() * photos.length);
-  return photos[randomIndex];
+  return randomIndex(photos);
 }
 
-export function lat() {
+export function getLat() {
   const lat = (Math.random() * (35.7 - 35.65) + 35.65).toFixed(5);
-  return +lat;
+  return Number(lat);
 }
 
-export function lng() {
+export function getLng() {
   const lng = (Math.random() * (139.8 - 139.7) + 139.7).toFixed(5);
-  return +lng;
+  return Number(lng);
 }

@@ -37,8 +37,8 @@ export function createAddress() {
 export function createPrice() {
   const priceText = document.createElement("p");
   const price = DATA.find((el) => el.offer);
-  const offerPrice = price.offer.price;
-  priceText.textContent = `${offerPrice}₽/ночь`;
+  const getOfferPrice = price.offer.price;
+  priceText.textContent = `${getOfferPrice}₽/ночь`;
   priceText.classList.add("popup__text--price");
   article.append(priceText);
 }
@@ -46,9 +46,9 @@ export function createPrice() {
 export function createType() {
   const typeTitle = document.createElement("h4");
   const type = DATA.find((el) => el.offer);
-  const offerType = type.offer.type;
-  typeTitle.textContent = offerType;
-  switch (offerType) {
+  const getOfferType = type.offer.type;
+  typeTitle.textContent = getOfferType;
+  switch (getOfferType) {
     case "flat":
       typeTitle.textContent = "Квартира";
       break;
@@ -80,7 +80,7 @@ export function createRoomsAndGuests() {
   article.append(roomsText);
 }
 
-export function checkinAndcheckoutTime() {
+export function getCheckinAndCheckoutTime() {
   const time = document.createElement("p");
   const checkin = DATA.find((el) => el.offer);
   const checkout = DATA.find((el) => el.offer);
@@ -108,7 +108,7 @@ export function createDescription() {
   const offerDescription = description.offer.description;
   descriptionText.textContent = offerDescription;
   descriptionText.classList.add("popup__description");
-  if (offerDescription === undefined) {
+  if (!offerDescription) {
     descriptionText.display = "none";
   } else {
     article.append(descriptionText);
