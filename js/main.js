@@ -1,4 +1,4 @@
-import DATA from "./data.js";
+import getData from "./data.js";
 import {
   map,
   article,
@@ -13,8 +13,6 @@ import {
   createDescription,
   createApartmentPhoto,
 } from "./card.js";
-
-console.log(DATA);
 console.log(
   createAvatar(),
   createTitle(),
