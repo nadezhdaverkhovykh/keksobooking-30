@@ -15,15 +15,17 @@ import {
 } from "./card.js";
 
 console.log(DATA);
-console.log(
-  createAvatar(),
-  createTitle(),
-  createAddress(),
-  createPrice(),
-  createType(),
-  createRoomsAndGuests(),
-  getCheckinAndCheckoutTime(),
-  createFeatures(),
-  createDescription(),
-  createApartmentPhoto()
-);
+// console.log(
+//   createAvatar(),
+//   createTitle(),
+//   createAddress(),
+//   createPrice(),
+//   createType(),
+//   createRoomsAndGuests(),
+//   getCheckinAndCheckoutTime(),
+//   createFeatures(),
+//   createDescription(),
+//   createApartmentPhoto()
+// );
+
+import { disableForm, enableForm, enableMapFilters } from "./form.js";
