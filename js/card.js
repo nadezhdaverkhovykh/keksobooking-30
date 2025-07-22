@@ -1,6 +1,7 @@
-import DATA from "./data.js";
+import getData from "./data.js";
 export const map = document.querySelector(".map__canvas");
 export const article = document.createElement("article");
+const data = getData();
 export function createAvatar() {
   const cardDiv = document.createElement("div");
   map.append(cardDiv);
@@ -8,15 +9,14 @@ export function createAvatar() {
   cardDiv.append(article);
   const avatar = document.createElement("img");
   avatar.classList.add("popup__avatar");
-  const avatarImg = DATA.find((el) => el.author);
+  const avatarImg = data.find((el) => el.author);
   const offerAvatar = avatarImg.author.avatar;
   avatar.setAttribute("src", offerAvatar);
   article.append(avatar);
 }
-
 export function createTitle() {
   const title = document.createElement("h3");
-  let offerTitle = DATA.find((el) => el.author);
+  let offerTitle = data.find((el) => el.author);
   let current = offerTitle.offer.title;
   title.textContent = current;
   title.classList.add("popup__title");
@@ -25,7 +25,7 @@ export function createTitle() {
 
 export function createAddress() {
   const addressText = document.createElement("p");
-  const address = DATA.find((el) => el.offer);
+  const address = data.find((el) => el.offer);
   const Offeraddress = address.offer.address;
   const lat = Offeraddress.lat;
   const lng = Offeraddress.lng;
@@ -36,7 +36,7 @@ export function createAddress() {
 
 export function createPrice() {
   const priceText = document.createElement("p");
-  const price = DATA.find((el) => el.offer);
+  const price = data.find((el) => el.offer);
   const getOfferPrice = price.offer.price;
   priceText.textContent = `${getOfferPrice}₽/ночь`;
   priceText.classList.add("popup__text--price");
@@ -45,7 +45,7 @@ export function createPrice() {
 
 export function createType() {
   const typeTitle = document.createElement("h4");
-  const type = DATA.find((el) => el.offer);
+  const type = data.find((el) => el.offer);
   const getOfferType = type.offer.type;
   typeTitle.textContent = getOfferType;
   switch (getOfferType) {
@@ -71,8 +71,8 @@ export function createType() {
 
 export function createRoomsAndGuests() {
   const roomsText = document.createElement("p");
-  const guests = DATA.find((el) => el.offer);
-  const rooms = DATA.find((el) => el.offer);
+  const guests = data.find((el) => el.offer);
+  const rooms = data.find((el) => el.offer);
   const offerRooms = rooms.offer.rooms;
   const offerGuests = guests.offer.guests;
   roomsText.textContent = `${offerRooms} комнаты для ${offerGuests} гостей`;
@@ -82,8 +82,8 @@ export function createRoomsAndGuests() {
 
 export function getCheckinAndCheckoutTime() {
   const time = document.createElement("p");
-  const checkin = DATA.find((el) => el.offer);
-  const checkout = DATA.find((el) => el.offer);
+  const checkin = data.find((el) => el.offer);
+  const checkout = data.find((el) => el.offer);
   const offerCheckin = checkin.offer.checkin;
   const offerCheckout = checkout.offer.checkout;
   time.textContent = `Заезд после ${offerCheckin}, выезд до ${offerCheckout}`;
@@ -94,7 +94,7 @@ export function getCheckinAndCheckoutTime() {
 export function createFeatures() {
   const featuresList = document.createElement("ul");
   const featuresItems = document.createElement("li");
-  const features = DATA.find((el) => el.offer);
+  const features = data.find((el) => el.offer);
   const offerFeatures = features.offer.features;
   featuresItems.textContent = offerFeatures;
   featuresList.classList.add("popup__features");
@@ -104,7 +104,7 @@ export function createFeatures() {
 
 export function createDescription() {
   const descriptionText = document.createElement("p");
-  const description = DATA.find((el) => el.offer);
+  const description = data.find((el) => el.offer);
   const offerDescription = description.offer.description;
   descriptionText.textContent = offerDescription;
   descriptionText.classList.add("popup__description");
@@ -120,7 +120,7 @@ export function createApartmentPhoto() {
   photoDiv.classList.add("popup__photos");
   const img = document.createElement("img");
   img.classList.add("popup__photo");
-  const photos = DATA.find((el) => el.offer);
+  const photos = data.find((el) => el.offer);
   const offerPhotos = photos.offer.photos;
   img.setAttribute("src", offerPhotos);
   photoDiv.append(img);
