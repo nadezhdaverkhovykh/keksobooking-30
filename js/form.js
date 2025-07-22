@@ -7,28 +7,28 @@ const mapFeatures = document.querySelector(".map__features");
 const priceSlider = document.querySelector(".ad-form__slider");
 
 export function disableForm() {
-  form.classList.toggle("ad-form--disabled", "");
-  formHeader.setAttribute("disabled", "");
-  formElements.forEach((el) => el.setAttribute("disabled", ""));
-  priceSlider.setAttribute("disabled", "");
-  mapFiltersForm.classList.toggle("ad-form--disabled", "");
-  mapFilterElements.forEach((el) => el.setAttribute("disabled", ""));
-  mapFeatures.setAttribute("disabled", "");
+  form.classList.toggle("ad-form--disabled", true);
+  formHeader.setAttribute("disabled", true);
+  formElements.forEach((el) => el.setAttribute("disabled", true));
+  priceSlider.setAttribute("disabled", true);
+  mapFiltersForm.classList.toggle("ad-form--disabled", true);
+  mapFilterElements.forEach((el) => el.setAttribute("disabled", true));
+  mapFeatures.setAttribute("disabled", true);
 }
 
 disableForm();
 
-// export function enableForm() {
-//   form.classList.toggle("ad-form--disabled", "");
-//   formHeader.removeAttribute("disabled", "");
-//   priceSlider.removeAttribute("disabled", "");
-//   formElements.forEach((el) => el.removeAttribute("disabled", ""));
-// }
-// enableForm();
+export function enableForm() {
+  form.classList.toggle("ad-form--disabled", false);
+  formHeader.removeAttribute("disabled", false);
+  priceSlider.removeAttribute("disabled", false);
+  formElements.forEach((el) => el.removeAttribute("disabled", false));
+}
+enableForm();
 
-// export function enableMapFilters() {
-//   mapFiltersForm.classList.toggle("ad-form--disabled", "");
-//   mapFilterElements.forEach((el) => el.removeAttribute("disabled", ""));
-//   mapFeatures.removeAttribute("disabled", "");
-// }
-// enableMapFilters();
+export function enableMapFilters() {
+  mapFiltersForm.classList.toggle("ad-form--disabled", false);
+  mapFilterElements.forEach((el) => el.removeAttribute("disabled", false));
+  mapFeatures.removeAttribute("disabled", false);
+}
+enableMapFilters();
