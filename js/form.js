@@ -32,3 +32,32 @@ export function enableMapFilters() {
   mapFeatures.removeAttribute("disabled", false);
 }
 enableMapFilters();
+console.log(form);
+const pristine = new Pristine(form, {
+  classTo: "ad-form__element", // родитель, куда будет добавлен класс ошибки
+  errorClass: "ad-form__element--invalid", // класс ошибки (уже стилизован в CSS)
+  errorTextParent: "ad-form__element", // куда вставить текст ошибки
+  errorTextClass: "text-help",
+});
+
+function checkTitleHandler(value) {
+  return value.length >= 30 && value.length <= 100;
+}
+pristine.addValidator(
+  form.querySelector("#title"),
+  checkTitleHandler,
+  " от 30 до 100"
+);
+
+function setupFormValidation() {
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const isValid = pristine.validate();
+    if (isValid) {
+      console.log("Форма валидна!");
+    } else {
+      console.log("Форма содержит ошибки!");
+    }
+  });
+}
+export default setupFormValidation;
