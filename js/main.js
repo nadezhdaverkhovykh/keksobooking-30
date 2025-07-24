@@ -26,6 +26,6 @@ console.log(
   createApartmentPhoto()
 );
 
-import { setupFormValidation } from "./form.js";
+import setupFormValidation from "./form.js";
 
 setupFormValidation();
