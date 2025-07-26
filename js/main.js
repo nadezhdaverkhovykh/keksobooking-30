@@ -1,4 +1,4 @@
-import getData from "./data.js";
+import getData from './data.js';
 import {
   map,
   article,
@@ -12,7 +12,7 @@ import {
   createFeatures,
   createDescription,
   createApartmentPhoto,
-} from "./card.js";
+} from './card.js';
 console.log(
   createAvatar(),
   createTitle(),
@@ -26,6 +26,6 @@ console.log(
   createApartmentPhoto()
 );
 
-import setupFormValidation from "./form.js";
+import setupFormValidation from './form.js';
 
 setupFormValidation();

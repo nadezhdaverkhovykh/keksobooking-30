@@ -1,5 +1,4 @@
 import {
-  used,
   addAvatar,
   getOfferPrice,
   getOfferType,
