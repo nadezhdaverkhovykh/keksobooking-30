@@ -1,6 +1,6 @@
 import getData from './data.js';
-export const map = document.querySelector('.map__canvas');
-export const article = document.createElement('article');
+const map = document.querySelector('.map__canvas');
+const article = document.createElement('article');
 const data = getData();
 export function createAvatar() {
   const cardDiv = document.createElement('div');

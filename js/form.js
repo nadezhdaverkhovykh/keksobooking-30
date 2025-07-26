@@ -128,13 +128,9 @@ pristine.addValidator(checkout ,checkinTimeHandler,'Выезд невозмож�
 function setupFormValidation() {
   form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const isValid = pristine.validate();
-    if (isValid) {
-      console.log('Форма валидна!');
-    } else {
-      console.log('Форма содержит ошибки!');
-    }
-  });
+    pristine.validate();
+  }
+  );
 }
 export default setupFormValidation;
 
