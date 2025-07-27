@@ -1,6 +1,6 @@
 const form = document.querySelector('.ad-form');
 const priceInput = form.price;
-const accomadationInput = form.type;
+const accommodationInput = form.type;
 const checkin = form.querySelector('[name="timein"]');
 const checkout = form.querySelector('[name="timeout"]');
 
@@ -61,42 +61,27 @@ function checkPriceHandler(value) {
   return value <= 100000;
 }
 
-pristine.addValidator(accomadationInput, checkAccomodationHandler);
-function checkAccomodationHandler() {
-  switch (accomadationInput.value) {
-    case 'bungalow':priceInput.setAttribute('placeholder','0');
-      break;
-    case 'flat':priceInput.setAttribute('placeholder','1000');
-      break;
-    case 'hotel':
-      priceInput.setAttribute('placeholder','3000');
-      break;
-    case 'house': priceInput.setAttribute('placeholder','5000');
-      break;
-    case 'palace': priceInput.setAttribute('placeholder','10000');
-      break;
-  }
-  return accomadationInput.value;
-}
+const accommodation = {
+  'bungalow': '0',
+  'flat': '1000',
+  'hotel': '3000',
+  'house': '5000',
+  'palace': '10000',
+};
 
+pristine.addValidator(accommodationInput, checkAccomodationHandler);
+function checkAccomodationHandler() {
+  const accommodationValue = accommodationInput.value;
+  const accommodationType = accommodation[accommodationValue];
+  priceInput.setAttribute('placeholder', `${accommodationType }`);
+}
 pristine.addValidator(priceInput, priceForNight, 'Цена должна быть не ниже указанной');
 function priceForNight() {
-  const bungalowPrice = priceInput.value >= 0;
-  const flatPrice = priceInput.value >= 1000;
-  const hotelPrice = priceInput.value >= 3000;
-  const housePrice = priceInput.value >= 5000;
-  const palacePrice = priceInput.value >= 10000;
-  if (accomadationInput.value === 'bungalow') {
-    return bungalowPrice;
-  } else if (accomadationInput.value === 'flat') {
-    return flatPrice;
-  } else if (accomadationInput.value === 'hotel') {
-    return hotelPrice;
-  } else if (accomadationInput.value === 'house') {
-    return housePrice;
-  } else if (accomadationInput.value === 'palace') {
-    return palacePrice;
-  }
+  const priceInputValue = priceInput.value;
+  const accommodationValue = accommodationInput.value;
+  const checkAccommodation = accommodation[accommodationValue];
+  const result = Number(priceInputValue) >= Number(checkAccommodation);
+  return result;
 }
 const rooms = form.rooms;
 const guests = form.capacity;

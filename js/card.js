@@ -43,28 +43,20 @@ export function createPrice() {
   article.append(priceText);
 }
 
+
+const accomadation = {
+  'bungalow': 'Бунгало',
+  'flat': 'Квартира',
+  'hotel': 'Отель',
+  'house': 'Дом',
+  'palace': 'Дворец',
+
+};
 export function createType() {
   const typeTitle = document.createElement('h4');
   const type = data.find((el) => el.offer);
   const getOfferType = type.offer.type;
-  typeTitle.textContent = getOfferType;
-  switch (getOfferType) {
-    case 'flat':
-      typeTitle.textContent = 'Квартира';
-      break;
-    case 'bungalow':
-      typeTitle.textContent = 'Бунгало';
-      break;
-    case 'house':
-      typeTitle.textContent = 'Дом';
-      break;
-    case 'palace':
-      typeTitle.textContent = 'Дворец';
-      break;
-    case 'hotel':
-      typeTitle.textContent = 'Отель';
-      break;
-  }
+  typeTitle.textContent = accomadation[getOfferType];
   typeTitle.classList.add('popup__type');
   article.append(typeTitle);
 }

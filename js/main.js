@@ -11,6 +11,7 @@ import {
   createApartmentPhoto,
 } from './card.js';
 
+import setupFormValidation from './form.js';
 createAvatar();
 createTitle();
 createAddress();
@@ -21,5 +22,4 @@ getCheckinAndCheckoutTime();
 createFeatures();
 createDescription();
 createApartmentPhoto();
-import setupFormValidation from './form.js';
 setupFormValidation();
