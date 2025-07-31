@@ -42,9 +42,8 @@ const mapData = getData();
 const createCustomPopup = (point) => {
   const balloonTemplate = document.querySelector('#card').content.querySelector('.popup');
   const popupElement = balloonTemplate.cloneNode(true);
-
-  popupElement.querySelector('.popup__avatar').setAttribute('src',`${point.author.avatar}`);
-  popupElement.querySelector('.popup__title').textContent = `${point.offer.title}`;
+  popupElement.querySelector('.popup__avatar').setAttribute('src',point.author.avatar);
+  popupElement.querySelector('.popup__title').textContent = point.offer.title;
   popupElement.querySelector('.popup__text--address').textContent = `${point.offer.address.lat},${point.offer.address.lng}`;
   popupElement.querySelector('.popup__text--price').textContent = `${point.offer.price} ₽/ночь`;
   const accomadation = {
@@ -54,17 +53,17 @@ const createCustomPopup = (point) => {
     'house': 'Дом',
     'palace': 'Дворец',
   };
-  popupElement.querySelector('.popup__type').textContent = accomadation[`${point.offer.type}`];
+  popupElement.querySelector('.popup__type').textContent = accomadation[point.offer.type];
   popupElement.querySelector('.popup__text--capacity').textContent = `${point.offer.rooms} комнаты для ${point.offer.guests} гостей`;
   popupElement.querySelector('.popup__text--time').textContent = `Заезд после ${point.offer.checkin}, выезд до ${point.offer.checkout}`;
-  popupElement.querySelector('.popup__features').textContent = `${point.offer.features}`;
+  popupElement.querySelector('.popup__features').textContent = point.offer.features;
   if (!point.offer.description) {
     popupElement.querySelector('.popup__description').style.display = 'none';
   } else {
-    popupElement.querySelector('.popup__description').textContent = ` ${point.offer.description}`;
+    popupElement.querySelector('.popup__description').textContent = point.offer.description;
   }
 
-  popupElement.querySelector('.popup__photo').setAttribute('src', `${point.offer.photos}`);
+  popupElement.querySelector('.popup__photo').setAttribute('src', point.offer.photos);
 
   return popupElement;
 };
