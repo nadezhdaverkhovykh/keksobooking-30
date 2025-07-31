@@ -73,7 +73,7 @@ pristine.addValidator(accommodationInput, checkAccomodationHandler);
 export function checkAccomodationHandler() {
   const accommodationValue = accommodationInput.value;
   const accommodationType = accommodation[accommodationValue];
-  priceInput.setAttribute('placeholder', `${accommodationType}`);
+  priceInput.setAttribute('placeholder', accommodationType);
   return accommodationType;
 }
 pristine.addValidator(priceInput, priceForNight, 'Цена должна быть не ниже указанной');
