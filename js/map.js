@@ -1,5 +1,6 @@
 import {enableForm}from './form.js';
-import getData from './data.js';
+// import getData from './data.js';
+import {getAdvert} from './api.js';
 const form = document.querySelector('.ad-form');
 const addressInput = form.address;
 export const map = L.map('map-canvas').on('load', enableForm).setView({
@@ -36,15 +37,12 @@ const icon = L.icon({
   iconAnchor: [20, 40],
 });
 
-
-const mapData = getData();
-
 const createCustomPopup = (point) => {
   const balloonTemplate = document.querySelector('#card').content.querySelector('.popup');
   const popupElement = balloonTemplate.cloneNode(true);
   popupElement.querySelector('.popup__avatar').setAttribute('src',point.author.avatar);
   popupElement.querySelector('.popup__title').textContent = point.offer.title;
-  popupElement.querySelector('.popup__text--address').textContent = `${point.offer.address.lat},${point.offer.address.lng}`;
+  popupElement.querySelector('.popup__text--address').textContent = point.offer.address;
   popupElement.querySelector('.popup__text--price').textContent = `${point.offer.price} ₽/ночь`;
   const accomadation = {
     'bungalow': 'Бунгало',
@@ -85,8 +83,13 @@ const createMarker = (point) => {
   marker.addTo(markerGroup).bindPopup(createCustomPopup(point));
 };
 
-mapData.forEach((point) => {
-  createMarker(point);
+const mapData = getAdvert();
+
+mapData.then((adverts) => {
+  adverts.slice(0,10).forEach((point) => {
+    createMarker(point);
+
+  });
 });
 
 tokyoMarker.on('moveend', (evt) => {

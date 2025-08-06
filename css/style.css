@@ -1043,3 +1043,16 @@ fieldset {
 .hidden {
   display: none;
 }
+.errorload{
+  position: absolute;
+  z-index: 999;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  display: none;
+}
