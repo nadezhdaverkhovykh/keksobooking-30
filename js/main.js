@@ -1,6 +1,2 @@
-import setupFormValidation from './form.js';
-setupFormValidation();
-import './map.js';
-import './priceSlider.js';
-import {getAdvert} from './api.js';
-getAdvert();
+import {init} from './controller.js';
+init();
