@@ -2,7 +2,7 @@ import { enableForm, setupFormValidation } from './form.js';
 import { resetSlider, initSlider } from './priceSlider.js';
 import {initMap, resetMapMarker} from './map.js';
 import { getAdverts,postAdvert} from './api.js';
-
+import {formReset} from './form.js';
 export async function init() {
   const adverts = await getAdverts();
   initSlider();
@@ -16,8 +16,12 @@ resetButton.addEventListener('click', reset);
 function reset() {
   resetSlider();
   resetMapMarker();
+  formReset();
 }
 
 function onSuccess() {
-  postAdvert(reset);
+  return postAdvert().then(()=>
+    reset()
+  );
+
 }

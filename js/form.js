@@ -2,7 +2,6 @@ const form = document.querySelector('.ad-form');
 if (!form) {
   throw new Error('Форма не найдена!');
 }
-
 const priceInput = form.price;
 const accommodationInput = form.type;
 const checkin = form.querySelector('[name="timein"]');
@@ -13,7 +12,7 @@ const mapFiltersForm = document.querySelector('.map__filters');
 const mapFilterElements = document.querySelectorAll('.map__filter');
 const mapFeatures = document.querySelector('.map__features');
 const priceSlider = document.querySelector('.ad-form__slider');
-const submitButton = document.querySelector('.ad-form__submit');
+
 
 export function disableForm() {
   form.classList.toggle('ad-form--disabled', true);
@@ -114,15 +113,21 @@ pristine.addValidator(checkout ,checkinTimeHandler,'Выезд невозмож�
 
 
 export function setupFormValidation(onSuccess) {
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit',async (event) => {
     event.preventDefault();
     const isValid = pristine.validate();
     if (isValid) {
-      submitButton.disabled = true;
-      onSuccess();
+      const promise = onSuccess();
+      disableForm();
+      await promise ;
     }
-    submitButton.disabled = false;
+    enableForm();
+    enableMapFilters();
   }
   );
 }
 
+
+export function formReset() {
+  form.reset();
+}

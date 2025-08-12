@@ -44,4 +44,4 @@ function getData() {
   return DATA;
 }
 
-// export default getData;
+export default getData;

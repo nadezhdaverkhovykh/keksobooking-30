@@ -23,7 +23,7 @@ function loadError(error){
 }
 
 
-export async function postAdvert(reset) {
+export async function postAdvert() {
   try {
     const response = await fetch('https://30.javascript.htmlacademy.pro/keksobooking', {
       method: 'POST',
@@ -34,13 +34,9 @@ export async function postAdvert(reset) {
     }
     const data = await response.json();
     postSuccess();
-    reset();
-    form.reset();
     return data;
   } catch (error) {
-
     postError();
-
   }
 }
 
