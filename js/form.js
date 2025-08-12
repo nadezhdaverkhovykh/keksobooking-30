@@ -1,9 +1,11 @@
 const form = document.querySelector('.ad-form');
+if (!form) {
+  throw new Error('Форма не найдена!');
+}
 const priceInput = form.price;
 const accommodationInput = form.type;
 const checkin = form.querySelector('[name="timein"]');
 const checkout = form.querySelector('[name="timeout"]');
-
 const formHeader = document.querySelector('.ad-form-header');
 const formElements = document.querySelectorAll('.ad-form__element');
 const mapFiltersForm = document.querySelector('.map__filters');
@@ -11,32 +13,29 @@ const mapFilterElements = document.querySelectorAll('.map__filter');
 const mapFeatures = document.querySelector('.map__features');
 const priceSlider = document.querySelector('.ad-form__slider');
 
+
 export function disableForm() {
   form.classList.toggle('ad-form--disabled', true);
-  formHeader.setAttribute('disabled', true);
-  formElements.forEach((el) => el.setAttribute('disabled', true));
-  priceSlider.setAttribute('disabled', true);
+  formHeader.setAttribute('disabled', 'true');
+  formElements.forEach((el) => el.setAttribute('disabled', 'true'));
+  priceSlider.setAttribute('disabled', 'true');
   mapFiltersForm.classList.toggle('ad-form--disabled', true);
-  mapFilterElements.forEach((el) => el.setAttribute('disabled', true));
-  mapFeatures.setAttribute('disabled', true);
+  mapFilterElements.forEach((el) => el.setAttribute('disabled', 'true'));
+  mapFeatures.setAttribute('disabled', 'true');
 }
-
-disableForm();
 
 export function enableForm() {
   form.classList.toggle('ad-form--disabled', false);
-  formHeader.removeAttribute('disabled', false);
-  priceSlider.removeAttribute('disabled', false);
-  formElements.forEach((el) => el.removeAttribute('disabled', false));
+  formHeader.removeAttribute('disabled');
+  priceSlider.removeAttribute('disabled');
+  formElements.forEach((el) => el.removeAttribute('disabled'));
 }
-enableForm();
 
 export function enableMapFilters() {
   mapFiltersForm.classList.toggle('ad-form--disabled', false);
-  mapFilterElements.forEach((el) => el.removeAttribute('disabled', false));
-  mapFeatures.removeAttribute('disabled', false);
+  mapFilterElements.forEach((el) => el.removeAttribute('disabled'));
+  mapFeatures.removeAttribute('disabled');
 }
-enableMapFilters();
 
 const pristine = new Pristine(form, {
   classTo: 'ad-form__element',
@@ -76,6 +75,8 @@ export function checkAccomodationHandler() {
   priceInput.setAttribute('placeholder', accommodationType);
   return accommodationType;
 }
+
+
 pristine.addValidator(priceInput, priceForNight, 'Цена должна быть не ниже указанной');
 function priceForNight() {
   const priceInputValue = priceInput.value;
@@ -111,13 +112,22 @@ pristine.addValidator(checkin ,checkinTimeHandler,'Въезд невозможе
 pristine.addValidator(checkout ,checkinTimeHandler,'Выезд невозможен');
 
 
-function setupFormValidation() {
-  form.addEventListener('submit', (event) => {
+export function setupFormValidation(onSuccess) {
+  form.addEventListener('submit',async (event) => {
     event.preventDefault();
-    pristine.validate();
+    const isValid = pristine.validate();
+    if (isValid) {
+      const promise = onSuccess();
+      disableForm();
+      await promise ;
+    }
+    enableForm();
+    enableMapFilters();
   }
   );
 }
-export default setupFormValidation;
 
 
+export function formReset() {
+  form.reset();
+}
