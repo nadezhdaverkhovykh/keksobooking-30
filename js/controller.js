@@ -3,11 +3,14 @@ import { resetSlider, initSlider } from './priceSlider.js';
 import {initMap, resetMapMarker} from './map.js';
 import { getAdverts,postAdvert} from './api.js';
 import {formReset} from './form.js';
+import { filterAdverts} from './mapFilters.js';
 export async function init() {
   const adverts = await getAdverts();
   initSlider();
   setupFormValidation(onSuccess);
-  initMap(enableForm,adverts);
+  initMap(enableForm, adverts);
+  filterAdverts(adverts);
+
 }
 
 
