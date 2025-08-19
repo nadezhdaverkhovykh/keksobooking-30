@@ -16,7 +16,7 @@ const tokyoMarker = L.marker({
 
 );
 
-export function initMap(onLoadCallback,adverts) {
+export function initMap(onLoadCallback, adverts) {
   const form = document.querySelector('.ad-form');
   const addressInput = form.address;
   const map = L.map('map-canvas').on('load',onLoadCallback).setView({
@@ -84,11 +84,16 @@ export function initMap(onLoadCallback,adverts) {
     marker.addTo(markerGroup).bindPopup(createCustomPopup(point));
   };
 
-
-  adverts.slice(0,10).forEach((point) => {
-    createMarker(point);
-  });
-
+  // adverts.slice(0,10).forEach((point) => {
+  //   createMarker(point);
+  // });
+  function createFilteredPin() {
+    markerGroup.clearLayers();
+    adverts.slice(0,10).forEach((point) => {
+      createMarker(point);
+    });
+  }
+  createFilteredPin(adverts);
 
   tokyoMarker.on('moveend', (evt) => {
     const coors = evt.target.getLatLng();
@@ -102,6 +107,7 @@ export function initMap(onLoadCallback,adverts) {
 
 
 }
+
 const startCoordinate = {
   lat: 35.68950,
   lng: 139.69171
@@ -110,3 +116,5 @@ const startCoordinate = {
 export function resetMapMarker() {
   tokyoMarker.setLatLng(startCoordinate);
 }
+
+

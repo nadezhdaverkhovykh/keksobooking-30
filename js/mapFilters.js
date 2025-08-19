@@ -1,7 +1,5 @@
 
-export function filterAdverts(adverts) {
-  // const slicedAdverts = adverts.slice(0, 10);
-  //
+export function AddfilterListener(adverts,createPins) {
   const accommodationTypeSelector = document.querySelector('#housing-type');
   const accommodationPriceSelector = document.querySelector('#housing-price');
   const accommodationRoomsSelector = document.querySelector('#housing-rooms');
@@ -50,16 +48,18 @@ export function filterAdverts(adverts) {
     if (accommodationFeatures.length >= 1) {
       const featuresStringArr = featuresArray.map((featureInput) => featureInput.value
       );
+
       filteredAdverts = filteredAdverts.filter((advert) => {
         if (!advert.offer.features) {
           return false;
         }
-
         return featuresStringArr.every((featuresString) => advert.offer.features.includes(featuresString));
       });
 
 
     }
-    console.log(filteredAdverts);
+    createPins(filteredAdverts) ;
   }
 }
+
+
