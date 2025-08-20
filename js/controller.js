@@ -9,7 +9,7 @@ export async function init() {
   initSlider();
   setupFormValidation(onSuccess);
   initMap(enableForm, adverts);
-  AddfilterListener(adverts,createFilteredPin);
+  AddfilterListener(adverts);
 
 }
 
