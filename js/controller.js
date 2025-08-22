@@ -12,6 +12,7 @@ export async function init() {
   initSlider();
   setupFormValidation(onSuccess);
   initMap(enableForm);
+  renderFilteredPin(adverts);
   addfilterListener(adverts, debounce(renderFilteredPin,RERENDER_DELAY));
 }
 
@@ -24,7 +25,7 @@ function reset() {
 }
 
 function onSuccess() {
-  return postAdvert().then(reset()
+  return postAdvert().then(reset
   );
 }
 

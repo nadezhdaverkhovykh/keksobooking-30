@@ -102,7 +102,6 @@ export function initMap(onLoadCallback) {
 
 }
 
-
 export function renderFilteredPin(adverts) {
   markerGroup.clearLayers();
   adverts.slice(0,10).forEach((point) => {
