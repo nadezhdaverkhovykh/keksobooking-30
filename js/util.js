@@ -1,3 +1,10 @@
+export const debounce = (callback, timeoutDelay) => {
+  let timeoutId;
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+};
 const used = [];
 function randomIndex(arr) {
   return arr[Math.floor(Math.random() * arr.length)];

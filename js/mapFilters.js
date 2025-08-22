@@ -1,5 +1,5 @@
 
-export function AddfilterListener(adverts,createPins) {
+export function addfilterListener(adverts,onChange) {
   const accommodationTypeSelector = document.querySelector('#housing-type');
   const accommodationPriceSelector = document.querySelector('#housing-price');
   const accommodationRoomsSelector = document.querySelector('#housing-rooms');
@@ -58,7 +58,7 @@ export function AddfilterListener(adverts,createPins) {
 
 
     }
-    createPins(filteredAdverts) ;
+    onChange(filteredAdverts) ;
   }
 }
 
