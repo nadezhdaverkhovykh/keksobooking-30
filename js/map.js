@@ -21,7 +21,6 @@ const tokyoMarker = L.marker(
 let map;
 let markerGroup;
 
-
 const createCustomPopup = (point) => {
   const balloonTemplate = document.querySelector('#card').content.querySelector('.popup');
   const popupElement = balloonTemplate.cloneNode(true);

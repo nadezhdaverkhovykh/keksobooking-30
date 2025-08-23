@@ -4,7 +4,8 @@ import {initMap, resetMapMarker,renderFilteredPin } from './map.js';
 import { getAdverts,postAdvert} from './api.js';
 import { addfilterListener } from './mapFilters.js';
 import { debounce } from './util.js';
-
+import { showPreviewAvatar} from './avatar.js';
+import { showPreviewAccommodation } from './avatar.js';
 const RERENDER_DELAY = 500;
 
 export async function init() {
@@ -13,7 +14,9 @@ export async function init() {
   setupFormValidation(onSuccess);
   initMap(enableForm);
   renderFilteredPin(adverts);
-  addfilterListener(adverts, debounce(renderFilteredPin,RERENDER_DELAY));
+  addfilterListener(adverts, debounce(renderFilteredPin, RERENDER_DELAY));
+  showPreviewAvatar();
+  showPreviewAccommodation();
 }
 
 const resetButton = document.querySelector('.ad-form__reset');
@@ -28,4 +31,5 @@ function onSuccess() {
   return postAdvert().then(reset
   );
 }
+
 

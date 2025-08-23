@@ -1056,3 +1056,9 @@ fieldset {
   border-radius: 8px;
   display: none;
 }
+.accommodation-preview{
+background-color:  #e4e4de;
+display: flex;
+margin: 0 auto;
+margin-top: 10px;
+}
