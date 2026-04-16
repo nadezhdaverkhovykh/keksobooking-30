@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    
+    
+    
+    
+    <link rel="shortcut icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADZY/wA1Vv9bNVb/5DVW/+01Vv/sNVb/5zVW/+k1Vv/oNVb/8TVW/+01Vv+IN1j/BAAAAAAAAAAAAAAAAAAAAAA1VP8DNVb/pTVW//E1Vv+LNVb/tjVW/4U1Vv+dNVb/kDVW/7E1Vv/BNVb/0jVW/xYAAAAAAAAAAAAAAAAAAAAANFb/DjVW/8k1Vv/bNFb/QTVW/5E1Vv9XNVb/ejVW/2Q1Vv9tNVb/dTVW/+s0Vv8uAAAAAAAAAAAAAAAAAAAAADVV/yU1Vv/bNVb/rDVW/y41Vv9jNFb/WDVW/4I1Vv9iNVb/eTVW/2I1Vv/6NVb/TQAAAAAAAAAANFX/ADVW/wA0Vf8lNFb/bzVW/2s1Vv+SNVb/ezVW/0k0Vv9PNFb/PzRW/1c1Vf9ONVb/2DVW/081Vv8ANVX/ADRV/ww1Vv9WNVb/ejVW/481Vv/xNVb//zVW//81Vv+7NVb/WjVW/401Vv94NVb/MTVW/1k1Vv+ENVb/ZjVV/xU0Vv97NVb/9TVW//81Vv//NVb//zVW//81Vv//NVb//jVW//c1Vv//NVb//jVW/7s1Vv/UNVb//zVW//s1Vv+XNVb/rTVW//81Vv//NVb//zVW//81Vv//NVb//zVW//81Vv//NVb//zVW//81Vv//NVb//zVW//81Vv//NVb/xTRV/0c1Vv/NNVb//jVW//81Vv//NVb//zVW//81Vv//NVb//zVW//81Vv//NVb//zVW//81Vv/9NVb/0TVW/1Y0Xf8ANFb/OTVW/+s1Vv//NVb/+zVW/+Q1Vv/vNVb//zVW//81Vv//NVb//zVW//81Vv//NVb/6DVW/zOOzP8ANk//ADVW/ww1Vv+rNVb/9DVW/340Vv8oNVX/QzVW/8k1Vv//NVb//zVW//81Vv//NVb//zVW/8M0Vv8QMVL/AAAAAAAzWv8ANVb/MjVW/7A0Vv8fNFX/CzRW/wA1Vv9qNVb//zVW//81Vv//NVb//jVW/9M1Vv9GNFP/AQAAAAAAAAAANE7/ADZW/w01Vv+nNVb/uDVW/20zV/8KNVb/iTVW/6Y1Vv+cNVb/mDVW/2s0Vv8kQlb/ADRV/wAAAAAAAAAAADhV/wA0Vv8zNVb/0DVW/9k1Vv+eNFb/kTVW/4A1Vf8PMk//ASpD/wA2Vv8ANFb/ADNX/wAAAAAAAAAAAAAAAAA0Vf8LNVb/rjVW/5A0Vf8iNVb/PTRW/zE1Vv8HNFX/ADVV/wA1Vf8AM1b/AAAAAAAAAAAAAAAAAAAAAAAAAAAANVX/ETVW/5E0Vv8qNFX/ADVV/wA1Vv8ANVb/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4AMAAMADAADAAwAAwAMAAMADAAAAAAAAAAAAAAAAAAAAAAAAgAEAAIABAADCAQAAwAcAAMA/AACA/wAAj/8AAA==" type="image/x-icon" />
+    <title>Кексобукинг</title>
+    <script type="module" crossorigin src="/keksobooking-30/assets/index-9b328150.js"></script>
+    <link rel="stylesheet" href="/keksobooking-30/assets/index-1c4d1244.css">
+  </head>
+  <script src="./vendor/nouislider/nouislider.js"></script>
+  <script src="./vendor/leaflet/leaflet.js"></script>
+  <script
+    src="./vendor/pristine/pristine.min.js"
+    type="text/javascript"
+  ></script>
+  
+  <body>
+    <main>
+      <div class="promo">
+        <h1 class="promo__title visually-hidden">
+          Keksobooking. Кексы по соседству
+        </h1>
+        <img
+          src="/keksobooking-30/assets/keksobooking-d815582b.svg"
+          alt="Keksobooking. Кексы по соседству"
+          width="215"
+          height="45"
+        />
+      </div>
+
+      <!-- Карта объявлений -->
+      <section class="map">
+        <!-- Блок для вставки карты -->
+        <div  class="map__canvas"  id="map-canvas"></div>
+
+        <!-- Фильтрация объявлений -->
+        <div class="map__filters-container">
+          <form action="#" class="map__filters" autocomplete="off">
+            <select name="housing-type" id="housing-type" class="map__filter">
+              <option value="any" selected>Любой тип жилья</option>
+              <option value="bungalow">Бунгало</option>
+              <option value="flat">Квартира</option>
+              <option value="hotel">Отель</option>
+              <option value="house">Дом</option>
+              <option value="palace">Дворец</option>
+            </select>
+            <select name="housing-price" id="housing-price" class="map__filter">
+              <option value="any" selected>Любая</option>
+              <option value="middle">10000 - 50000&#x20bd;</option>
+              <option value="low">до 10000&#x20bd;</option>
+              <option value="high">от 50000&#x20bd;</option>
+            </select>
+            <select name="housing-rooms" id="housing-rooms" class="map__filter">
+              <option value="any" selected>Любое число комнат</option>
+              <option value="1">Одна комната</option>
+              <option value="2">Две комнаты</option>
+              <option value="3">Три комнаты</option>
+            </select>
+            <select
+              name="housing-guests"
+              id="housing-guests"
+              class="map__filter"
+            >
+              <option value="any" selected>Любое число гостей</option>
+              <option value="2">Два гостя</option>
+              <option value="1">Один гость</option>
+              <option value="0">Не для гостей</option>
+            </select>
+            <fieldset id="housing-features" class="map__features">
+              <input
+                type="checkbox"
+                name="features"
+                value="wifi"
+                id="filter-wifi"
+                class="map__checkbox visually-hidden"
+              />
+              <label class="map__feature map__feature--wifi" for="filter-wifi"
+                >Wi-Fi</label
+              >
+              <input
+                type="checkbox"
+                name="features"
+                value="dishwasher"
+                id="filter-dishwasher"
+                class="map__checkbox visually-hidden"
+              />
+              <label
+                class="map__feature map__feature--dishwasher"
+                for="filter-dishwasher"
+                >Посудомоечная машина</label
+              >
+              <input
+                type="checkbox"
+                name="features"
+                value="parking"
+                id="filter-parking"
+                class="map__checkbox visually-hidden"
+              />
+              <label
+                class="map__feature map__feature--parking"
+                for="filter-parking"
+                >Парковка</label
+              >
+              <input
+                type="checkbox"
+                name="features"
+                value="washer"
+                id="filter-washer"
+                class="map__checkbox visually-hidden"
+              />
+              <label
+                class="map__feature map__feature--washer"
+                for="filter-washer"
+                >Стиральная машина</label
+              >
+              <input
+                type="checkbox"
+                name="features"
+                value="elevator"
+                id="filter-elevator"
+                class="map__checkbox visually-hidden"
+              />
+              <label
+                class="map__feature map__feature--elevator"
+                for="filter-elevator"
+                >Лифт</label
+              >
+              <input
+                type="checkbox"
+                name="features"
+                value="conditioner"
+                id="filter-conditioner"
+                class="map__checkbox visually-hidden"
+              />
+              <label
+                class="map__feature map__feature--conditioner"
+                for="filter-conditioner"
+                >Кондиционер</label
+              >
+            </fieldset>
+          </form>
+        </div>
+      </section>
+
+      <!-- Форма объявления -->
+      <section class="notice">
+        <h2 class="notice__title">Ваше объявление</h2>
+        <form
+          class="ad-form"
+          autocomplete="off"
+          method="post"
+          action="https://30.javascript.htmlacademy.pro/keksobooking"
+          enctype="multipart/form-data"
+        >
+          <fieldset class="ad-form-header ">
+            <legend class="ad-form-header__title">
+              Ваша фотография (для карты)
+            </legend>
+            <div class="ad-form-header__upload">
+              <div class="ad-form-header__preview">
+                <img
+                  src="/keksobooking-30/assets/muffin-grey-ab42b183.svg"
+                  alt="Аватар пользователя"
+                  width="40"
+                  height="44"
+                 class="avatar-preview"
+                />
+              </div>
+              <div class="ad-form__field">
+                <input
+                  type="file"
+                  id="avatar"
+                  name="avatar"
+                  class="ad-form-header__input visually-hidden"
+                />
+                <label class="ad-form-header__drop-zone" for="avatar"
+                  >Загрузить<br />фото...</label
+                >
+              </div>
+              <p class="ad-form-header__info">
+                Заполните все обязательные поля, назначьте цену, загрузите
+                аватар и фото жилья. Придумайте интересное описание. Оно сделает
+                объявление более живым и привлекательным. Получившееся
+                объявление должно давать гостям полное представление о вашем
+                жилье.
+              </p>
+            </div>
+          </fieldset>
+          <fieldset class="ad-form__element ad-form__element--wide">
+            <label class="ad-form__label" for="title"
+              >Заголовок объявления</label
+            >
+            <input
+              id="title"
+              name="title"
+              type="text"
+              placeholder="Милая, уютная квартирка в центре Токио"
+              required
+            />
+          </fieldset>
+          <fieldset class="ad-form__element ad-form__element--wide">
+            <label class="ad-form__label" for="address"
+              >Адрес (координаты)</label
+            >
+            <input id="address" name="address" type="text" value="35.68950, 139.69171" required />
+          </fieldset>
+          <fieldset class="ad-form__element">
+            <label class="ad-form__label" for="type">Тип жилья</label>
+            <select id="type" name="type" required>
+              <option value="bungalow">Бунгало</option>
+              <option value="flat" selected>Квартира</option>
+              <option value="hotel">Отель</option>
+              <option value="house">Дом</option>
+              <option value="palace">Дворец</option>
+            </select>
+          </fieldset>
+          <fieldset class="ad-form__element">
+            <label class="ad-form__label" for="price">Цена за ночь, руб.</label>
+            <input
+              id="price"
+              name="price"
+              type="number"
+              placeholder="5000"
+              required
+            />
+            <div class="ad-form__slider"></div>
+          </fieldset>
+          <fieldset class="ad-form__element ad-form__element--time">
+            <label class="ad-form__label" for="timein"
+              >Время заезда и выезда</label
+            >
+            <select id="timein" name="timein" required>
+              <option value="12:00" selected>После 12</option>
+              <option value="13:00">После 13</option>
+              <option value="14:00">После 14</option>
+            </select>
+            <select id="timeout" name="timeout" title="Time to go out" required>
+              <option value="12:00" selected>Выезд до 12</option>
+              <option value="13:00">Выезд до 13</option>
+              <option value="14:00">Выезд до 14</option>
+            </select>
+          </fieldset>
+          <fieldset class="ad-form__element">
+            <label class="ad-form__label" for="room_number"
+              >Количество комнат</label
+            >
+            <select id="room_number" name="rooms" required>
+              <option value="1" selected>1 комната</option>
+              <option value="2">2 комнаты</option>
+              <option value="3">3 комнаты</option>
+              <option value="100">100 комнат</option>
+            </select>
+          </fieldset>
+          <fieldset class="ad-form__element">
+            <label class="ad-form__label" for="capacity">Количество мест</label>
+            <select id="capacity" name="capacity" required>
+              <option value="3" selected>для 3 гостей</option>
+              <option value="2">для 2 гостей</option>
+              <option value="1">для 1 гостя</option>
+              <option value="0">не для гостей</option>
+            </select>
+          </fieldset>
+          <fieldset class="ad-form__element ad-form__element--wide features">
+            <legend>
+              Удобства: Wi-Fi, кухня, парковка, стиралка, лифт, кондиционер
+            </legend>
+            <input
+              class="features__checkbox visually-hidden"
+              type="checkbox"
+              name="feature"
+              value="wifi"
+              id="feature-wifi"
+          
+            />
+            <label
+              class="features__label features__label--wifi"
+              for="feature-wifi"
+              >Wi-Fi</label
+            >
+            <input
+              class="features__checkbox visually-hidden"
+              type="checkbox"
+              name="feature"
+              value="dishwasher"
+              id="feature-dishwasher"
+            />
+            <label
+              class="features__label features__label--dishwasher"
+              for="feature-dishwasher"
+              >Посудомоечная машина</label
+            >
+            <input
+              class="features__checkbox visually-hidden"
+              type="checkbox"
+              name="feature"
+              value="parking"
+              id="feature-parking"
+            />
+            <label
+              class="features__label features__label--parking"
+              for="feature-parking"
+              >Парковка</label
+            >
+            <input
+              class="features__checkbox visually-hidden"
+              type="checkbox"
+              name="feature"
+              value="washer"
+              id="feature-washer"
+            />
+            <label
+              class="features__label features__label--washer"
+              for="feature-washer"
+              >Стиральная машина</label
+            >
+            <input
+              class="features__checkbox visually-hidden"
+              type="checkbox"
+              name="feature"
+              value="elevator"
+              id="feature-elevator"
+            />
+            <label
+              class="features__label features__label--elevator"
+              for="feature-elevator"
+              >Лифт</label
+            >
+            <input
+              class="features__checkbox visually-hidden"
+              type="checkbox"
+              name="feature"
+              value="conditioner"
+              id="feature-conditioner"
+            />
+            <label
+              class="features__label features__label--conditioner"
+              for="feature-conditioner"
+              >Кондиционер</label
+            >
+          </fieldset>
+          <fieldset class="ad-form__element ad-form__element--wide">
+            <label class="ad-form__label" for="description"
+              >Описание (не обязательно)</label
+            >
+            <textarea
+              id="description"
+              name="description"
+              placeholder="Здесь расскажите о том, какое ваше жилье замечательное и вообще"
+            ></textarea>
+          </fieldset>
+          <fieldset class="ad-form__element ad-form__element--wide">
+            <label class="ad-form__label">Фотография жилья</label>
+            <div class="ad-form__photo-container">
+              <div class="ad-form__upload">
+                <input
+                  type="file"
+                  id="images"
+                  name="images"
+                  class="ad-form__input visually-hidden"
+                  required
+               
+                />
+                <label for="images" class="ad-form__drop-zone"
+                  >Загрузить<br />фото...</label
+                >
+              </div>
+              <div class="ad-form__photo">
+                <img src="https://static.vecteezy.com/system/resources/previews/014/391/893/non_2x/home-icon-isolated-on-transparent-background-black-symbol-for-your-design-free-png.png" alt="Фото жилья" class="accommodation-preview"
+                width="40"
+                height="44"
+                >
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="ad-form__element ad-form__element--submit">
+            <button class="ad-form__submit" type="submit">Опубликовать</button>
+            или <button class="ad-form__reset" type="reset">очистить</button>
+          </fieldset>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer container">
+      <div class="footer__copyright copyright">
+        <a
+          class="copyright__link copyright__link--image"
+          href="https://htmlacademy.ru/intensive/javascript"
+        >
+          <img
+            src="/keksobooking-30/assets/htmla-logo-cf78d141.svg"
+            width="130"
+            height="45"
+            alt="HTML Academy"
+            class="copyright__logo"
+          />
+        </a>
+        <p>
+          Сделано в
+          <a
+            class="copyright__link copyright__link--text"
+            href="https://htmlacademy.ru/intensive/javascript"
+            >HTMLAcademy</a
+          >
+        </p>
+      </div>
+      <ul class="footer__contacts contacts">
+        <li>
+          <a
+            href="https://twitter.com/htmlacademy_ru"
+            class="contacts__link contacts__link--twitter"
+            >Twitter</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://vk.com/htmlacademy"
+            class="contacts__link contacts__link--vk"
+            >VK</a
+          >
+        </li>
+      </ul>
+    </footer>
+
+    <!-- Карточка объявления -->
+    <template id="card">
+      <article class="popup">
+        <img
+          src="img/avatars/user01.png"
+          class="popup__avatar"
+          width="70"
+          height="70"
+          alt="Аватар пользователя"
+        />
+        <h3 class="popup__title">Уютное гнездышко для молодоженов</h3>
+        <p class="popup__text popup__text--address">
+          102-0082 Tōkyō-to, Chiyoda-ku, Ichibanchō, 14−3
+        </p>
+        <p class="popup__text popup__text--price">5200 <span>₽/ночь</span></p>
+        <h4 class="popup__type">Квартира</h4>
+        <p class="popup__text popup__text--capacity">2 комнаты для 3 гостей</p>
+        <p class="popup__text popup__text--time">
+          Заезд после 14:00, выезд до 10:00
+        </p>
+        <ul class="popup__features">
+          <li class="popup__feature popup__feature--wifi"></li>
+          <li class="popup__feature popup__feature--dishwasher"></li>
+          <li class="popup__feature popup__feature--parking"></li>
+          <li class="popup__feature popup__feature--washer"></li>
+          <li class="popup__feature popup__feature--elevator"></li>
+          <li class="popup__feature popup__feature--conditioner"></li>
+        </ul>
+        <p class="popup__description">
+          Великолепная квартира-студия в центре Токио. Подходит как туристам,
+          так и бизнесменам. Квартира полностью укомплектована и недавно
+          отремонтирована.
+        </p>
+        <div class="popup__photos">
+          <img
+            src=""
+            class="popup__photo"
+            width="45"
+            height="40"
+            alt="Фотография жилья"
+          />
+        </div>
+      </article>
+    </template>
+
+    <!-- Сообщение об успешном создании объявления -->
+    <template id="success">
+      <div class="success">
+        <p class="success__message">Ваше объявление<br />успешно размещено!</p>
+      </div>
+    </template>
+
+    <!-- Сообщение об ошибке создания объявления -->
+    <template id="error">
+      <div class="error">
+        <p class="error__message">Ошибка размещения объявления</p>
+        <button type="button" class="error__button">Попробовать снова</button>
+      </div>
+    </template>
+  </body>
+</html>
