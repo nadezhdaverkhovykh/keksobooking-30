@@ -1,3 +1,5 @@
+import Pristine from 'pristinejs';
+
 const form = document.querySelector('.ad-form');
 if (!form) {
   throw new Error('Форма не найдена!');

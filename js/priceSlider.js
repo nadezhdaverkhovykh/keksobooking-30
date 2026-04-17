@@ -1,4 +1,7 @@
 import { checkAccomodationHandler } from './form.js';
+import noUiSlider from 'nouislider';
+import 'nouislider/dist/nouislider.css';
+
 const sliderElement = document.querySelector('.ad-form__slider');
 const slider = noUiSlider.create(sliderElement, {
   range: {

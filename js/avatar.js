@@ -9,6 +9,9 @@ fileChooserAccommodation.addEventListener('change', showPreviewAccommodation);
 
 export function showPreviewAvatar() {
   const file = fileChooserAvatar.files[0];
+  if (!file) {
+    return;
+  }
   const fileName = file.name.toLowerCase();
   const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
 
@@ -19,6 +22,9 @@ export function showPreviewAvatar() {
 
 export function showPreviewAccommodation() {
   const file = fileChooserAccommodation.files[0];
+  if (!file) {
+    return;
+  }
   const fileName = file.name.toLowerCase();
   const matches = FILE_TYPES.some((it) => fileName.endsWith(it));
   if (matches) {

@@ -1,5 +1,10 @@
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import pinIcon from '../img/pin.svg';
+import mainPin from '../img/main-pin.svg';
+
 const mainPinIcon = L.icon({
-  iconUrl: './img/main-pin.svg',
+  iconUrl: mainPin,
   iconSize: [52, 52],
   iconAnchor: [26, 52],
 });
@@ -51,7 +56,7 @@ const createCustomPopup = (point) => {
   return popupElement;
 };
 const icon = L.icon({
-  iconUrl:  './img/pin.svg',
+  iconUrl:  pinIcon,
   iconSize: [40, 40],
   iconAnchor: [20, 40],
 });
